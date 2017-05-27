@@ -7,12 +7,12 @@
         <div class="col-md-8 col-md-push-2">
           <div class="list-group">
             <a class="list-group-item" ng-repeat="row in rows" href="[[ '/#/patient/' + row.demographics[0].patient_id]]">
-              <h3><i class="fa fa-bullseye"></i>
+              <strong><i class="fa fa-bullseye"></i>
                 [[ row.register_incident[0].incident_name ]]
                 <small>
                   [[ row.register_incident[0].where_its_happend ]]
                 </small>
-              </h3>
+              </strong>
             </a>
           </ul>
         </div>
