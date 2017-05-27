@@ -226,3 +226,162 @@ class BronzeOfficer(models.PatientSubrecord):
         blank=True,
         verbose_name="Please specify which other incident this major incident is coupled to"
     )
+
+class IncidentTimeline(models.PatientSubrecord):
+    _is_singleton = True
+
+    incident_occurs = fields.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="Time incident occurred"
+    )
+
+    first_ems_call = fields.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="Initial call to emergency services EOC"
+    )
+
+    first_ems_response = fields.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="First EMS response vehicle arrives on scene"
+    )
+
+    first_police_response = fields.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="First Police arrive on scene"
+    )
+
+    first_fire_response = fields.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="First Fire services arrive on scene"
+    )
+    
+    med_commander = fields.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="Medical responder assumes the role of on-scene medical commander"
+    )
+
+    safety_assessment_start = fields.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="Medical responder begins to make an assessment of scene safety"
+    )
+
+    report_to_ems = fields.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="Medical responder communicates a situation report to EMS coordination centre"
+    )
+
+    resource_request = fields.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="Medical responder requests additional resources"
+    )
+
+    safety_action = fields.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="Medical responder initiates any safety related actions"
+    )
+
+    delegation = fields.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="Medical responder delegates responsibility for other tasks on-scene"
+    )
+
+    ems_officer_arrives = fields.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="First EMS officer arrives on scene"
+    )
+
+    ems_officer_commands = fields.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="First EMS officer assumes role of medical commander"
+    )
+
+    mi_declared = fields.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="EMS declares a major incident"
+    )
+
+    summon_staff = fields.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="Summoning of additional medica staff to scene"
+    )
+
+    clearning_start = fields.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="Casualty Clearing Station established"
+    )
+
+    hospital_informed = fields.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="Hospital informed of major incident"
+    )
+
+    hospital_declares = fields.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="Hospital declares major incident"
+    )
+
+    first_patient_evacuated = fields.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="First patient evacuated from scene"
+    )
+
+    first_patient_arrives = fields.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="First patient arrives at hospital"
+    )
+
+    medical_communication = fields.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="Communication between medical personell at the incident initiated"
+    )
+
+    task_force_communication = fields.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="Communication between different task forces (e.g. police, fire) initiated"
+    )
+
+    last_patient_evacuated = fields.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="Last patient evacuated from scene"
+    )
+
+    last_patient_arrives = fields.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="Last patient arrives at hospital"
+    )
+
+    mi_stand_down_ems = fields.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="Major incident stand down declared by EMS"
+    )
+
+    mi_stand_down_hospital = fields.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="Major incident stand down declared by hospital"
+    )

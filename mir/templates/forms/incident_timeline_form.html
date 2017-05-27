@@ -1,0 +1,105 @@
+{% load forms %}
+<div class="row">
+  <label class="control-label col-sm-3">Time incident occurred</label>
+</div>
+{% datetimepicker  field="IncidentTimeline.incident_occurs"  %}
+<div class="row">
+  <label class="control-label col-sm-3">Initial call to emergency services EOC</label>
+</div>
+{% datetimepicker  field="IncidentTimeline.first_ems_call"  %}
+<div class="row">
+  <label class="control-label col-sm-3">First EMS response vehicle arrives on scene</label>
+</div>
+{% datetimepicker  field="IncidentTimeline.first_ems_response"  %}
+<div class="row">
+  <label class="control-label col-sm-3">First Police arrive on scene</label>
+</div>
+{% datetimepicker  field="IncidentTimeline.first_police_response"  %}
+<div class="row">
+  <label class="control-label col-sm-3">First Fire services arrive on scene</label>
+</div>
+{% datetimepicker  field="IncidentTimeline.first_fire_response"  %}
+<div class="row">
+  <label class="control-label col-sm-3">Medical responder assumes the role of on-scene medical commander</label>
+</div>
+{% datetimepicker  field="IncidentTimeline.med_commander"  %}
+<div class="row">
+  <label class="control-label col-sm-3">Medical responder begins to make an assessment of scene safety</label>
+</div>
+{% datetimepicker  field="IncidentTimeline.safety_assessment_start"  %}
+<div class="row">
+  <label class="control-label col-sm-3">Medical responder communicates a situation report to EMS coordination centre</label>
+</div>
+{% datetimepicker  field="IncidentTimeline.report_to_ems"  %}
+<div class="row">
+  <label class="control-label col-sm-3">Medical responder requests additional resources</label>
+</div>
+{% datetimepicker  field="IncidentTimeline.resource_request"  %}
+<div class="row">
+  <label class="control-label col-sm-3">Medical responder initiates any safety related actions</label>
+</div>
+{% datetimepicker  field="IncidentTimeline.safety_action"  %}
+<div class="row">
+  <label class="control-label col-sm-3">Medical responder delegates responsibility for other tasks on-scene</label>
+</div>
+{% datetimepicker  field="IncidentTimeline.delegation"  %}
+<div class="row">
+  <label class="control-label col-sm-3">First EMS officer arrives on scene</label>
+</div>
+{% datetimepicker  field="IncidentTimeline.ems_officer_arrives"  %}
+<div class="row">
+  <label class="control-label col-sm-3">First EMS officer assumes role of medical commander</label>
+</div>
+{% datetimepicker  field="IncidentTimeline.ems_officer_commands"  %}
+<div class="row">
+  <label class="control-label col-sm-3">EMS declares a major incident</label>
+</div>
+{% datetimepicker  field="IncidentTimeline.mi_declared"  %}
+<div class="row">
+  <label class="control-label col-sm-3">Summoning of additional medica staff to scene</label>
+</div>
+{% datetimepicker  field="IncidentTimeline.summon_staff"  %}
+<div class="row">
+  <label class="control-label col-sm-3">Casualty Clearing Station established</label>
+</div>
+{% datetimepicker  field="IncidentTimeline.clearning_start"  %}
+<div class="row">
+  <label class="control-label col-sm-3">Hospital informed of major incident</label>
+</div>
+{% datetimepicker  field="IncidentTimeline.hospital_informed"  %}
+<div class="row">
+  <label class="control-label col-sm-3">Hospital declares major incident</label>
+</div>
+{% datetimepicker  field="IncidentTimeline.hospital_declares"  %}
+<div class="row">
+  <label class="control-label col-sm-3">First patient evacuated from scene</label>
+</div>
+{% datetimepicker  field="IncidentTimeline.first_patient_evacuated"  %}
+<div class="row">
+  <label class="control-label col-sm-3">First patient arrives at hospital</label>
+</div>
+{% datetimepicker  field="IncidentTimeline.first_patient_arrives"  %}
+<div class="row">
+  <label class="control-label col-sm-3">Communication between medical personell at the incident initiated</label>
+</div>
+{% datetimepicker  field="IncidentTimeline.medical_communication"  %}
+<div class="row">
+  <label class="control-label col-sm-3">Communication between different task forces (e.g. police, fire) initiated</label>
+</div>
+{% datetimepicker  field="IncidentTimeline.task_force_communication"  %}
+<div class="row">
+  <label class="control-label col-sm-3">Last patient evacuated from scene</label>
+</div>
+{% datetimepicker  field="IncidentTimeline.last_patient_evacuated"  %}
+<div class="row">
+  <label class="control-label col-sm-3">Last patient arrives at hospital</label>
+</div>
+{% datetimepicker  field="IncidentTimeline.last_patient_arrives"  %}
+<div class="row">
+  <label class="control-label col-sm-3">Major incident stand down declared by EMS</label>
+</div>
+{% datetimepicker  field="IncidentTimeline.mi_stand_down_ems"  %}
+<div class="row">
+  <label class="control-label col-sm-3">Major incident stand down declared by hospital</label>
+</div>
+{% datetimepicker  field="IncidentTimeline.mi_stand_down_hospital"  %}
