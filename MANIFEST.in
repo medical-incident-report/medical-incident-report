@@ -1,0 +1,3 @@
+recursive-include mir/static *
+recursive-include mir/assets *
+recursive-include mir/templates *
