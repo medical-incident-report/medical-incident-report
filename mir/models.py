@@ -148,7 +148,7 @@ class BronzeOfficer(models.PatientSubrecord):
         default=False,
         verbose_name = "Transport and industrial accident"
     )
-    
+
     extreme_weather = fields.BooleanField(
         default=False,
         verbose_name = "Extreme weather"
@@ -193,14 +193,14 @@ class BronzeOfficer(models.PatientSubrecord):
         default=False,
         verbose_name = "Other/unknown"
     )
-    
+
     weather_type = fields.CharField(
         null=True,
         blank=True,
         choices=[("Avalance", "Avalanche"),
                      ("Flooding", "Flooding"),
                      ("Thunderstorm", "Thunderstorm"),
-                     ("Hurricaine", "Hurricaine"),
+                     ("Hurricane", "Hurricaine"),
                      ("Extreme heat", "Extreme heat"),
                      ("Extreme cold", "Extreme cold"),
                      ("Other type of extreme weather. Please specify",
