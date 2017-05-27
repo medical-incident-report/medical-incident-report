@@ -2,7 +2,7 @@ angular.module('opal.controllers').controller(
     'PatientDetailCtrl',
     function(
         $rootScope, $scope, $modal, $location, $routeParams,
-        Flow, Item, patientLoader, patient, profile, metadata
+        Flow, Item, patientLoader, patient, profile, metadata, $http, $timeout
     ){
         $scope.profile = profile;
         $scope.patient = patient;
@@ -52,6 +52,12 @@ angular.module('opal.controllers').controller(
             $scope.view = what;
             return true
         }
+
+      var target = "mir/incident/" + $scope.patient.id;
+      var getPatientPromise = $http.get(target);
+      getPatientPromise.then(function(x){
+        window.timeline = new TL.Timeline('timeline-embed', x.data);
+      });
 
 	    $scope.dischargeEpisode = function() {
             if(profile.readonly){ return null; };
