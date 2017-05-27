@@ -1,20 +1,20 @@
 <span ng-show="item.incident_name">
-    [[ item.incident_name ]]
+    <strong>[[ item.incident_name ]]</strong>
    <br />
 </span>
 <span ng-show="item.link_to_the_newsfeed">
-    [[ item.link_to_the_newsfeed ]]
+  <strong>Related News Artical:</strong>  <a href="[[ item.link_to_the_newsfeed ]]">[[ item.link_to_the_newsfeed ]]</a>
    <br />
 </span>
 <span ng-show="item.number_of_casualties">
-    [[ item.number_of_casualties ]]
+  <strong>Casualties:</strong>  [[ item.number_of_casualties ]]
    <br />
 </span>
 <span ng-show="item.where_its_happend">
-    [[ item.where_its_happend ]]
+  <strong>Where:</strong> [[ item.where_its_happend ]]
    <br />
 </span>
 <span ng-show="item.date_time">
-  [[ item.date_time ]]
+  <strong>When:</strong> [[ item.date_time | shortDateTime ]]
   <br />
 </span>
