@@ -75,6 +75,10 @@ class RegisterIncident(models.PatientSubrecord):
     where_its_happend = fields.CharField(
         max_length=255, blank=True, null=True
     )
+    date_time = fields.DateTimeField(
+        null=True,
+        blank=True
+    )
 
 
 class FirstEmergencyResponder(models.PatientSubrecord):
@@ -135,4 +139,90 @@ class FirstEmergencyResponder(models.PatientSubrecord):
 
     different_system_description = fields.TextField(
         verbose_name="If not what is it?"
+    )
+
+class BronzeOfficer(models.PatientSubrecord):
+    _is_singleton = True
+
+    transport_industrial = fields.BooleanField(
+        default=False,
+        verbose_name = "Transport and industrial accident"
+    )
+    
+    extreme_weather = fields.BooleanField(
+        default=False,
+        verbose_name = "Extreme weather"
+    )
+
+    fire = fields.BooleanField(
+        default=False,
+        verbose_name = "Fire"
+    )
+
+    mass_gathering = fields.BooleanField(
+        default=False,
+        verbose_name = "Mass Gathering"
+    )
+
+    explosive = fields.BooleanField(
+        default=False,
+        verbose_name = "Explosive"
+    )
+
+    industrial_accident = fields.BooleanField(
+        default=False,
+        verbose_name = "Industrial accident"
+    )
+
+    nuclear_radiological = fields.BooleanField(
+        default=False,
+        verbose_name = "Nuclear or radiological incident"
+    )
+
+    biological = fields.BooleanField(
+        default=False,
+        verbose_name = "Biological"
+    )
+
+    chemical = fields.BooleanField(
+        default=False,
+        verbose_name = "Chemical"
+    )
+
+    other_unknown = fields.BooleanField(
+        default=False,
+        verbose_name = "Other/unknown"
+    )
+    
+    weather_type = fields.CharField(
+        null=True,
+        blank=True,
+        choices=[("Avalance", "Avalanche"),
+                     ("Flooding", "Flooding"),
+                     ("Thunderstorm", "Thunderstorm"),
+                     ("Hurricaine", "Hurricaine"),
+                     ("Extreme heat", "Extreme heat"),
+                     ("Extreme cold", "Extreme cold"),
+                     ("Other type of extreme weather. Please specify",
+                          "Other types of extreme weather. Please specify")],
+        verbose_name="Please specify the extreme weather that caused the incident",
+        max_length=256
+    )
+
+    other_cause = fields.TextField(
+        null=True,
+        blank=True,
+        verbose_name="Please specify other mechanism/external factor that caused the incident"
+    )
+
+    coupled_to_another = fields.CharField(
+        choices=YES_NO_CHOICES,
+        max_length=256,
+        verbose_name="Is this incident coupled to another incident?"
+    )
+
+    specify_copled = fields.TextField(
+        null=True,
+        blank=True,
+        verbose_name="Please specify which other incident this major incident is coupled to"
     )
