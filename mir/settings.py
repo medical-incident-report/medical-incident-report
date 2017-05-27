@@ -254,6 +254,8 @@ DEFAULT_DOMAIN = 'http://mir.com/'
 OPAL_BRAND_NAME = 'mir'
 VERSION_NUMBER  = '<0.0.1'
 
+AUTOCOMPLETE_SEARCH = True
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',

@@ -1,4 +1,5 @@
 from opal.core.search.queries import DatabaseQuery
+from django.db.models import Q
 from mir.models import RegisterIncident
 
 
@@ -17,8 +18,6 @@ class QueryBackend(DatabaseQuery):
         """
         some_query = self.query
         qs = RegisterIncident.objects.filter(
-            incident_name__icontains=some_query,
-            where_its_happend__icontains=some_query
-
+            Q(incident_name__icontains=some_query) | Q(where_its_happend__icontains=some_query)
         )
         return [i.to_dict(None) for i in qs]
