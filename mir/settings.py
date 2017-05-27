@@ -266,6 +266,8 @@ REST_FRAMEWORK = {
 #     ('text/x-scss', 'sass --scss {infile} {outfile}'),
 # )
 
+OPAL_SEARCH_BACKEND = "mir.search.QueryBackend"
+
 try:
     from local_settings import *
 except ImportError:

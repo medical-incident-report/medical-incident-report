@@ -15,3 +15,15 @@ class MajorIncidentPathway(RedirectsToPatientMixin, PagePathway):
     steps = (
         models.RegisterIncident,
     )
+
+
+class FirstEmergencyResponder(RedirectsToPatientMixin, PagePathway):
+    _is_singleton = True
+    icon = "fa fa-sign-out"
+    display_name = "First Emergency Responder"
+    finish_button_text = "Done"
+    finish_button_icon = "fa fa-sign-out"
+    slug = "first_emergency_responder"
+    steps = (
+        models.FirstEmergencyResponder,
+    )

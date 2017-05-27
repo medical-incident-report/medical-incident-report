@@ -4,13 +4,19 @@
   <div class="row">
     <div class="col-md-10 col-md-push-1">
       <div class="row content-offset">
-        <div class="col-md-12">
+        <div class="col-md-4">
           <a class="btn btn-primary" href="pathway/#/majorincident">Add a Major Incident</a>
+        </div>
+        <div class="col-md-4">
+          <a class="btn btn-primary" href="pathway/#/first_emergency_responder">First Emergency Response Information</a>
         </div>
       </div>
       <div class="row content-offset-25">
         <div class="col-md-6">
           {% record_panel models.RegisterIncident %}
+        </div>
+        <div class="col-md-6">
+          {% record_panel models.FirstEmergencyResponder %}
         </div>
       </div>
     </div>
