@@ -18,6 +18,6 @@ class QueryBackend(DatabaseQuery):
         """
         some_query = self.query
         qs = RegisterIncident.objects.filter(
-            Q(incident_name__icontains=some_query) | Q(where_its_happend__icontains=some_query)
-        )
+            Q(incident_name__icontains=some_query) | Q(countries__name__icontains=some_query)
+        ).distinct()
         return [i.to_dict(None) for i in qs]

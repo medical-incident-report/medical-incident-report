@@ -1,7 +1,7 @@
 """
 mir models.
 """
-from django.db.models import fields
+from django.db import models as fields
 from opal.core.fields import ForeignKeyOrFreeText
 
 from opal import models
@@ -27,36 +27,6 @@ YES_NO_CHOICES = (
 )
 
 
-class MainAuthor(models.PatientSubrecord):
-    _is_singleton = True
-    surname = fields.CharField(max_length=255, blank=True)
-    first_name = fields.CharField(max_length=255, blank=True)
-    title = ForeignKeyOrFreeText(models.Title)
-    middle_name = fields.CharField(max_length=255, blank=True, null=True)
-    email = fields.CharField(max_length=255, blank=True, null=True)
-    role = fields.TextField(
-        blank=True,
-        null=True,
-        verbose_name="Please describe which role the author had in the major incident"
-    )
-    country = ForeignKeyOrFreeText(models.Destination)
-
-
-class PreIncidentData(models.PatientSubrecord):
-    country = ForeignKeyOrFreeText(models.Destination)
-    more_than_one_country = fields.BooleanField(default=False)
-    discription_area_of_the_incident = fields.TextField(
-        blank=True,
-        null=True,
-        verbose_name="Description of the area of the incident"
-    )
-    discription_the_special_circumstances = fields.TextField(
-        blank=True,
-        null=True,
-        verbose_name="Description of the area of the incident"
-    )
-
-
 class RegisterIncident(models.PatientSubrecord):
     _is_singleton = True
     CASUALTIES_CHOICES = (
@@ -74,6 +44,11 @@ class RegisterIncident(models.PatientSubrecord):
     )
     where_its_happend = fields.CharField(
         max_length=255, blank=True, null=True
+    )
+
+    countries = fields.ManyToManyField(
+        models.Destination, related_name="incident_countries",
+        verbose_name="In which countries did it happen?"
     )
     date_time = fields.DateTimeField(
         null=True,
@@ -259,7 +234,7 @@ class IncidentTimeline(models.PatientSubrecord):
         blank=True,
         verbose_name="First Fire services arrive on scene"
     )
-    
+
     med_commander = fields.DateTimeField(
         null=True,
         blank=True,

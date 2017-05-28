@@ -3,9 +3,9 @@
     <h4 class="inline orange">
       [[ match.label.incident_name ]]
     </h4>
-    <span ng-show="match.label.where_its_happend">
-    ([[ match.label.where_its_happend ]])
-    </span>
+    <div ng-show="match.label.countries">
+    ([[ match.label.countries.join(', ') ]])
+    </div>
   </div>
   </div>
 </script>
