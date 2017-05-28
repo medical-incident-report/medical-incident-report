@@ -257,9 +257,6 @@ class FirstEmergencyResponder(models.PatientSubrecord):
         verbose_name="Please specify which other type of location of incident scene"
     )
 
-class BronzeOfficer(models.PatientSubrecord):
-    _is_singleton = True
-
 class IncidentTimeline(models.PatientSubrecord):
     _is_singleton = True
 
