@@ -29,19 +29,9 @@ YES_NO_CHOICES = (
 
 class RegisterIncident(models.PatientSubrecord):
     _is_singleton = True
-    CASUALTIES_CHOICES = (
-        ("0-10", "0-10",),
-        ("11-20", "11-20",),
-        ("21-30", "21-30",),
-    )
+
     incident_name = fields.CharField(max_length=255, blank=True)
-    link_to_the_newsfeed = fields.CharField(max_length=255, blank=True)
-    number_of_casualties = fields.CharField(
-        max_length=255,
-        blank=True,
-        null=True,
-        choices=CASUALTIES_CHOICES
-    )
+
     where_its_happend = fields.CharField(
         max_length=255, blank=True, null=True
     )
@@ -50,10 +40,11 @@ class RegisterIncident(models.PatientSubrecord):
         models.Destination, related_name="incident_countries",
         verbose_name="In which countries did it happen?"
     )
-    date_time = fields.DateTimeField(
-        null=True,
-        blank=True
-    )
+    
+    # date_time = fields.DateTimeField(
+    #     null=True,
+    #     blank=True
+    # )
 
 
 class FirstEmergencyResponder(models.PatientSubrecord):

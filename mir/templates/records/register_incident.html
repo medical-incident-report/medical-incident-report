@@ -2,14 +2,6 @@
     <strong>[[ item.incident_name ]]</strong>
    <br />
 </span>
-<span ng-show="item.link_to_the_newsfeed">
-  <strong>Related News Artical:</strong>  <a href="[[ item.link_to_the_newsfeed ]]">[[ item.link_to_the_newsfeed ]]</a>
-   <br />
-</span>
-<span ng-show="item.number_of_casualties">
-  <strong>Casualties:</strong>  [[ item.number_of_casualties ]]
-   <br />
-</span>
 <span ng-show="item.where_its_happend">
   <strong>Where:</strong> [[ item.where_its_happend ]]
    <br />
@@ -17,8 +9,4 @@
 <span ng-show="item.countries.length">
   <strong>In:</strong> <span>[[ item.countries.join(', ') ]]</span>
    <br />
-</span>
-<span ng-show="item.date_time">
-  <strong>When:</strong> [[ item.date_time | shortDateTime ]]
-  <br />
 </span>
