@@ -1,12 +1,35 @@
 {% load forms %}
-{% input  field="FirstEmergencyResponder.one_common_number"  %}
-{% radio  field="FirstEmergencyResponder.directly_referred"  %}
-{% textarea  field="FirstEmergencyResponder.voluntary"  %}
-{% radio  field="FirstEmergencyResponder.authorisation_required"  %}
-{% input  field="FirstEmergencyResponder.trauma_centres"  %}
-{% input  field="FirstEmergencyResponder.trauma_units"  %}
-{% input  field="FirstEmergencyResponder.hospital_without_trauma_specialty"  %}
-{% input  field="FirstEmergencyResponder.triage_system"  %}
-{% input  field="FirstEmergencyResponder.which_triage_system"  %}
-{% radio  field="FirstEmergencyResponder.different_system"  %}
-{% textarea  field="FirstEmergencyResponder.different_system_description"  %}
+{% datetimepicker  field="FirstEmergencyResponder.date_time"  %}
+<label class="control-label col-sm-3">
+  What was the mechanism/exteral factor that caused the incident? Please tick for all options that apply.
+</label>
+{% checkbox  field="FirstEmergencyResponder.cause_transport_industrial"  %}
+{% checkbox  field="FirstEmergencyResponder.cause_extreme_weather"  %}
+{% checkbox  field="FirstEmergencyResponder.cause_fire"  %}
+{% checkbox  field="FirstEmergencyResponder.cause_mass_gathering"  %}
+{% checkbox  field="FirstEmergencyResponder.cause_explosive"  %}
+{% checkbox  field="FirstEmergencyResponder.cause_industrial_accident"  %}
+{% checkbox  field="FirstEmergencyResponder.cause_nuclear_radiological"  %}
+{% checkbox  field="FirstEmergencyResponder.cause_biological"  %}
+{% checkbox  field="FirstEmergencyResponder.cause_chemical"  %}
+{% checkbox  field="FirstEmergencyResponder.cause_other"  %}
+{% input  field="FirstEmergencyResponder.specify_weather"  %}
+{% textarea  field="FirstEmergencyResponder.specify_cause"  %}
+{% input  field="FirstEmergencyResponder.coupled_to_another"  %}
+{% textarea  field="FirstEmergencyResponder.specify_coupled"  %}
+<label class="control-label col-sm-3">
+  What was the location of the incident scene? Please tick for all options that apply.
+</label>
+{% checkbox  field="FirstEmergencyResponder.location_urban"  %}
+{% checkbox  field="FirstEmergencyResponder.location_rural"  %}
+{% checkbox  field="FirstEmergencyResponder.location_maritime"  %}
+{% checkbox  field="FirstEmergencyResponder.location_mountain"  %}
+{% checkbox  field="FirstEmergencyResponder.location_road"  %}
+{% checkbox  field="FirstEmergencyResponder.location_airport"  %}
+{% checkbox  field="FirstEmergencyResponder.location_education"  %}
+{% checkbox  field="FirstEmergencyResponder.location_public"  %}
+{% checkbox  field="FirstEmergencyResponder.location_healthcare"  %}
+{% checkbox  field="FirstEmergencyResponder.location_building"  %}
+{% checkbox  field="FirstEmergencyResponder.location_gathering"  %}
+{% checkbox  field="FirstEmergencyResponder.location_other"  %}
+{% textarea  field="FirstEmergencyResponder.specify_location"  %}
