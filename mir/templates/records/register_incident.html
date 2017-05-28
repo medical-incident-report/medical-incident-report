@@ -14,6 +14,10 @@
   <strong>Where:</strong> [[ item.where_its_happend ]]
    <br />
 </span>
+<span ng-show="item.countries.length">
+  <strong>In:</strong> <span>[[ item.countries.join(', ') ]]</span>
+   <br />
+</span>
 <span ng-show="item.date_time">
   <strong>When:</strong> [[ item.date_time | shortDateTime ]]
   <br />
