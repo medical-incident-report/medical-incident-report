@@ -53,7 +53,7 @@ angular.module('opal.controllers').controller(
             return true
         }
 
-      var target = "mir/incident/" + $scope.patient.id;
+      var target = "mir/incident/" + $scope.episode.register_incident[0].patient_id;
       var getPatientPromise = $http.get(target);
 
 
