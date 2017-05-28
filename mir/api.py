@@ -15,25 +15,55 @@ class MirApi(viewsets.ViewSet):
         return super(MirApi, self).dispatch(*args, **kwargs)
 
     def retrieve(self, *args, **kwargs):
-        return json_response({
-    "title": {
-        "text": {
-          "headline": self.register_incident.incident_name,
-        }
-    },
-    "events": [
-      {
-        "start_date": {
-          "month": self.incident_timeline.incident_occurs.month,
-          "day": self.incident_timeline.incident_occurs.day,
-          "year": self.incident_timeline.incident_occurs.year,
-		  "hour": self.incident_timeline.incident_occurs.hour,
-		  "minute": self.incident_timeline.incident_occurs.minute
-		  
-        },
-        "text": {
-          "headline": self.incident_timeline._get_field_title("incident_occurs")
-        }
-      }
-    ]
-})
+        field_names = ["incident_occurs",
+                           "first_ems_call",
+                           "first_ems_response",
+                           "first_police_response",
+                           "first_fire_response",
+                           "med_commander",
+                           "safety_assessment_start",
+                           "report_to_ems",
+                           "resource_request",
+                           "safety_action",
+                           "delegation",
+                           "ems_officer_arrives",
+                           "ems_officer_commands",
+                           "mi_declared",
+                           "summon_staff",
+                           "clearning_start",
+                           "hospital_informed",
+                           "hospital_declares",
+                           "first_patient_evacuated",
+                           "first_patient_arrives",
+                           "medical_communication",
+                           "task_force_communication",
+                           "last_patient_evacuated",
+                           "last_patient_arrives",
+                           "mi_stand_down_ems",
+                           "mi_stand_down_hospital"
+                           ]
+        result = {
+            "title": {
+                "text": {
+                    "headline": self.register_incident.incident_name,
+                    }
+                },
+            "events": []
+            }
+        for field_name in field_names:
+            field = getattr(self.incident_timeline, field_name)
+            if field is not None:
+                field_data = {
+                    "start_date": {
+                        "month": field.month,
+                        "day": field.day,
+                        "year": field.year,
+                        "hour": field.hour,
+                        "minute": field.minute
+                    },
+                    "text": {
+                        "headline": self.incident_timeline._get_field_title(field_name)
+                    }
+                }
+                result["events"].append(field_data)
+        return json_response(result)
