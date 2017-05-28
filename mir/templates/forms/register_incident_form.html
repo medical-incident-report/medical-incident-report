@@ -1,7 +1,4 @@
 {% load forms %}
 {% input  field="RegisterIncident.incident_name"  %}
-{% input  field="RegisterIncident.link_to_the_newsfeed"  %}
-{% radio field="RegisterIncident.number_of_casualties"  %}
 {% input  field="RegisterIncident.where_its_happend"  %}
 {% select "autofocus" field="RegisterIncident.countries" multiple=True tagging=False search_select=True maxlength="255" %}
-{% datetimepicker field="RegisterIncident.date_time" %}
