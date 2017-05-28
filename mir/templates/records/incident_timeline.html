@@ -1,104 +1,260 @@
 <span ng-show="item.incident_occurs">
-    [[ item.incident_occurs | shortDateTime ]]
-   <br />
+  <div class="row">
+    <div class="col-xs-6 text-right">
+      <strong>Time incident occurred</strong>
+    </div>
+    <div class="col-xs-6">
+      [[ item.incident_occurs | shortDateTime ]]
+    </div>
+  </div>
 </span>
 <span ng-show="item.first_ems_call">
-    [[ item.first_ems_call | shortDateTime ]]
-   <br />
+  <div class="row">
+    <div class="col-xs-6 text-right">
+      <strong>Initial call to emergency services EOC</strong>
+    </div>
+    <div class="col-xs-6">
+      [[ item.first_ems_call | shortDateTime ]]
+    </div>
+  </div>
 </span>
 <span ng-show="item.first_ems_response">
-    [[ item.first_ems_response | shortDateTime ]]
-   <br />
+  <div class="row">
+    <div class="col-xs-6 text-right">
+      <strong>First EMS response vehicle arrives on scene</strong>
+    </div>
+    <div class="col-xs-6">
+      [[ item.first_ems_response | shortDateTime ]]
+    </div>
+  </div>
 </span>
 <span ng-show="item.first_police_response">
-    [[ item.first_police_response | shortDateTime ]]
-   <br />
+  <div class="row">
+    <div class="col-xs-6 text-right">
+      <strong>First Police arrive on scene</strong>
+    </div>
+    <div class="col-xs-6">
+      [[ item.first_police_response | shortDateTime ]]
+    </div>
+  </div>
 </span>
 <span ng-show="item.first_fire_response">
-    [[ item.first_fire_response | shortDateTime ]]
-   <br />
+  <div class="row">
+    <div class="col-xs-6 text-right">
+      <strong>First Fire services arrive on scene</strong>
+    </div>
+    <div class="col-xs-6">
+      [[ item.first_fire_response | shortDateTime ]]
+    </div>
+  </div>
 </span>
 <span ng-show="item.med_commander">
-    [[ item.med_commander | shortDateTime ]]
-   <br />
+  <div class="row">
+    <div class="col-xs-6 text-right">
+      <strong>Medical responder assumes the role of on-scene medical commander</strong>
+    </div>
+    <div class="col-xs-6">
+      [[ item.med_commander | shortDateTime ]]
+    </div>
+  </div>
 </span>
 <span ng-show="item.safety_assessment_start">
-    [[ item.safety_assessment_start | shortDateTime ]]
-   <br />
+  <div class="row">
+    <div class="col-xs-6 text-right">
+      <strong>Medical responder begins to make an assessment of scene safety</strong>
+    </div>
+    <div class="col-xs-6">
+      [[ item.safety_assessment_start | shortDateTime ]]
+    </div>
+  </div>
 </span>
 <span ng-show="item.report_to_ems">
-    [[ item.report_to_ems | shortDateTime ]]
-   <br />
+  <div class="row">
+    <div class="col-xs-6 text-right">
+      <strong>Medical responder communicates a situation report to EMS coordination centre</strong>
+    </div>
+    <div class="col-xs-6">
+      [[ item.report_to_ems | shortDateTime ]]
+    </div>
+  </div>
 </span>
 <span ng-show="item.resource_request">
-    [[ item.resource_request | shortDateTime ]]
-   <br />
+  <div class="row">
+    <div class="col-xs-6 text-right">
+      <strong>Medical responder requests additional resources</strong>
+    </div>
+    <div class="col-xs-6">
+      [[ item.resource_request | shortDateTime ]]
+    </div>
+  </div>
 </span>
 <span ng-show="item.safety_action">
-    [[ item.safety_action | shortDateTime ]]
-   <br />
+  <div class="row">
+    <div class="col-xs-6 text-right">
+      <strong>Medical responder initiates any safety related actions</strong>
+    </div>
+    <div class="col-xs-6">
+      [[ item.safety_action | shortDateTime ]]
+    </div>
+  </div>
 </span>
 <span ng-show="item.delegation">
-    [[ item.delegation | shortDateTime ]]
-   <br />
+  <div class="row">
+    <div class="col-xs-6 text-right">
+      <strong>Medical responder delegates responsibility for other tasks on-scene</strong>
+    </div>
+    <div class="col-xs-6">
+      [[ item.delegation | shortDateTime ]]
+    </div>
+  </div>
 </span>
 <span ng-show="item.ems_officer_arrives">
-    [[ item.ems_officer_arrives | shortDateTime ]]
-   <br />
+  <div class="row">
+    <div class="col-xs-6 text-right">
+      <strong>First EMS officer arrives on scene</strong>
+    </div>
+    <div class="col-xs-6">
+      [[ item.ems_officer_arrives | shortDateTime ]]
+    </div>
+  </div>
 </span>
 <span ng-show="item.ems_officer_commands">
-    [[ item.ems_officer_commands | shortDateTime ]]
-   <br />
+  <div class="row">
+    <div class="col-xs-6 text-right">
+      <strong>First EMS officer assumes role of medical commander</strong>
+    </div>
+    <div class="col-xs-6">
+      [[ item.ems_officer_commands | shortDateTime ]]
+    </div>
+  </div>
 </span>
 <span ng-show="item.mi_declared">
-    [[ item.mi_declared | shortDateTime ]]
-   <br />
+  <div class="row">
+    <div class="col-xs-6 text-right">
+      <strong>EMS declares a major incident</strong>
+    </div>
+    <div class="col-xs-6">
+      [[ item.mi_declared | shortDateTime ]]
+    </div>
+  </div>
 </span>
 <span ng-show="item.summon_staff">
-    [[ item.summon_staff | shortDateTime ]]
-   <br />
+  <div class="row">
+    <div class="col-xs-6 text-right">
+      <strong>Summoning of additional medica staff to scene</strong>
+    </div>
+    <div class="col-xs-6">
+      [[ item.summon_staff | shortDateTime ]]
+    </div>
+  </div>
 </span>
 <span ng-show="item.clearning_start">
-    [[ item.clearning_start | shortDateTime ]]
-   <br />
+  <div class="row">
+    <div class="col-xs-6 text-right">
+      <strong>Casualty Clearing Station established</strong>
+    </div>
+    <div class="col-xs-6">
+      [[ item.clearning_start | shortDateTime ]]
+    </div>
+  </div>
 </span>
 <span ng-show="item.hospital_informed">
-    [[ item.hospital_informed | shortDateTime ]]
-   <br />
+  <div class="row">
+    <div class="col-xs-6 text-right">
+      <strong>Hospital informed of major incident</strong>
+    </div>
+    <div class="col-xs-6">
+      [[ item.hospital_informed | shortDateTime ]]
+    </div>
+  </div>
 </span>
 <span ng-show="item.hospital_declares">
-    [[ item.hospital_declares | shortDateTime ]]
-   <br />
+  <div class="row">
+    <div class="col-xs-6 text-right">
+      <strong>Hospital declares major incident</strong>
+    </div>
+    <div class="col-xs-6">
+      [[ item.hospital_declares | shortDateTime ]]
+    </div>
+  </div>
 </span>
 <span ng-show="item.first_patient_evacuated">
-    [[ item.first_patient_evacuated | shortDateTime ]]
-   <br />
+  <div class="row">
+    <div class="col-xs-6 text-right">
+      <strong>First patient evacuated from scene</strong>
+    </div>
+    <div class="col-xs-6">
+      [[ item.first_patient_evacuated | shortDateTime ]]
+    </div>
+  </div>
 </span>
 <span ng-show="item.first_patient_arrives">
-    [[ item.first_patient_arrives | shortDateTime ]]
-   <br />
+  <div class="row">
+    <div class="col-xs-6 text-right">
+      <strong>First patient arrives at hospital</strong>
+    </div>
+    <div class="col-xs-6">
+      [[ item.first_patient_arrives | shortDateTime ]]
+    </div>
+  </div>
 </span>
 <span ng-show="item.medical_communication">
-    [[ item.medical_communication | shortDateTime ]]
-   <br />
+  <div class="row">
+    <div class="col-xs-6 text-right">
+      <strong>Communication between medical personell at the incident initiated</strong>
+    </div>
+    <div class="col-xs-6">
+      [[ item.medical_communication | shortDateTime ]]
+    </div>
+  </div>
 </span>
 <span ng-show="item.task_force_communication">
-    [[ item.task_force_communication | shortDateTime ]]
-   <br />
+  <div class="row">
+    <div class="col-xs-6 text-right">
+      <strong>Communication between different task forces (e.g. police, fire) initiated</strong>
+    </div>
+    <div class="col-xs-6">
+      [[ item.task_force_communication | shortDateTime ]]
+    </div>
+  </div>
 </span>
 <span ng-show="item.last_patient_evacuated">
-    [[ item.last_patient_evacuated | shortDateTime ]]
-   <br />
+  <div class="row">
+    <div class="col-xs-6 text-right">
+      <strong>Last patient evacuated from scene</strong>
+    </div>
+    <div class="col-xs-6">
+      [[ item.last_patient_evacuated | shortDateTime ]]
+    </div>
+  </div>
 </span>
 <span ng-show="item.last_patient_arrives">
-    [[ item.last_patient_arrives | shortDateTime ]]
-   <br />
+  <div class="row">
+    <div class="col-xs-6 text-right">
+      <strong>Last patient arrives at hospita</strong>
+    </div>
+    <div class="col-xs-6">
+      [[ item.last_patient_arrives | shortDateTime ]]
+    </div>
+  </div>
 </span>
 <span ng-show="item.mi_stand_down_ems">
-    [[ item.mi_stand_down_ems | shortDateTime ]]
-   <br />
+  <div class="row">
+    <div class="col-xs-6 text-right">
+      <strong>Major incident stand down declared by EMS</strong>
+    </div>
+    <div class="col-xs-6">
+      [[ item.mi_stand_down_ems | shortDateTime ]]
+    </div>
+  </div>
 </span>
 <span ng-show="item.mi_stand_down_hospital">
-    [[ item.mi_stand_down_hospital | shortDateTime ]]
-   <br />
+  <div class="row">
+    <div class="col-xs-6 text-right">
+      <strong>Major incident stand down declared by hospital</strong>
+    </div>
+    <div class="col-xs-6">
+      [[ item.mi_stand_down_hospital | shortDateTime ]]
+    </div>
+  </div>
 </span>
