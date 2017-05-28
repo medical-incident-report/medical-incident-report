@@ -15,33 +15,34 @@ class MirApi(viewsets.ViewSet):
         return super(MirApi, self).dispatch(*args, **kwargs)
 
     def retrieve(self, *args, **kwargs):
-        field_names = ["incident_occurs",
-                           "first_ems_call",
-                           "first_ems_response",
-                           "first_police_response",
-                           "first_fire_response",
-                           "med_commander",
-                           "safety_assessment_start",
-                           "report_to_ems",
-                           "resource_request",
-                           "safety_action",
-                           "delegation",
-                           "ems_officer_arrives",
-                           "ems_officer_commands",
-                           "mi_declared",
-                           "summon_staff",
-                           "clearning_start",
-                           "hospital_informed",
-                           "hospital_declares",
-                           "first_patient_evacuated",
-                           "first_patient_arrives",
-                           "medical_communication",
-                           "task_force_communication",
-                           "last_patient_evacuated",
-                           "last_patient_arrives",
-                           "mi_stand_down_ems",
-                           "mi_stand_down_hospital"
-                           ]
+        field_names = [
+            "incident_occurs",
+            "first_ems_call",
+            "first_ems_response",
+            "first_police_response",
+            "first_fire_response",
+            "med_commander",
+            "safety_assessment_start",
+            "report_to_ems",
+            "resource_request",
+            "safety_action",
+            "delegation",
+            "ems_officer_arrives",
+            "ems_officer_commands",
+            "mi_declared",
+            "summon_staff",
+            "clearning_start",
+            "hospital_informed",
+            "hospital_declares",
+            "first_patient_evacuated",
+            "first_patient_arrives",
+            "medical_communication",
+            "task_force_communication",
+            "last_patient_evacuated",
+            "last_patient_arrives",
+            "mi_stand_down_ems",
+            "mi_stand_down_hospital"
+       ];
         result = {
             "title": {
                 "text": {
