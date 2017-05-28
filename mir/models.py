@@ -182,8 +182,6 @@ class FirstEmergencyResponder(models.PatientSubrecord):
         blank=True,
         choices=YES_NO_CHOICES,
         max_length=256,
-        blank=True,
-        null=True,
         verbose_name="Is this incident coupled to another incident?"
     )
 
