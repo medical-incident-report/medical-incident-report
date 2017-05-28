@@ -55,9 +55,19 @@ angular.module('opal.controllers').controller(
 
       var target = "mir/incident/" + $scope.patient.id;
       var getPatientPromise = $http.get(target);
-      getPatientPromise.then(function(x){
-        window.timeline = new TL.Timeline('timeline-embed', x.data);
-      });
+
+
+      var refreshTimeLine = _.throttle(function(){
+        getPatientPromise.then(function(x){
+          if(x.data.events.length){
+              window.timeline = new TL.Timeline(
+              'timeline-embed', angular.copy(x.data)
+            );
+          }
+        });
+      }, 500);
+
+      refreshTimeLine();
 
 	    $scope.dischargeEpisode = function() {
             if(profile.readonly){ return null; };
