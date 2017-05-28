@@ -40,127 +40,123 @@ class RegisterIncident(models.PatientSubrecord):
         models.Destination, related_name="incident_countries",
         verbose_name="In which countries did it happen?"
     )
-    
-    # date_time = fields.DateTimeField(
-    #     null=True,
-    #     blank=True
-    # )
-
 
 class FirstEmergencyResponder(models.PatientSubrecord):
     _is_singleton = True
 
-    one_common_number = fields.CharField(
-        default="Yes",
-        choices=YES_NO_CHOICES, max_length=256,
-        verbose_name="Is there one common phone number for the emergency services?"
+    date_time = fields.DateTimeField(
+        null=True,
+        blank=True
     )
 
-    directly_referred = fields.CharField(
-        default="Yes",
-        choices=YES_NO_CHOICES,
-        max_length=256,
-        verbose_name="Can an emergency incident be referred directly by the EMS?"
-    )
+    # one_common_number = fields.CharField(
+    #     default="Yes",
+    #     choices=YES_NO_CHOICES, max_length=256,
+    #     verbose_name="Is there one common phone number for the emergency services?"
+    # )
 
-    voluntary = fields.TextField(
-        null=True, blank=True,
-        verbose_name="Which voluntary organisations can assist the EMS?"
-    )
+    # directly_referred = fields.CharField(
+    #     default="Yes",
+    #     choices=YES_NO_CHOICES,
+    #     max_length=256,
+    #     verbose_name="Can an emergency incident be referred directly by the EMS?"
+    # )
 
-    authorisation_required = fields.CharField(
-        choices=YES_NO_CHOICES, max_length=256,
-        verbose_name="Do they require authorisation from the police?"
-    )
+    # voluntary = fields.TextField(
+    #     null=True, blank=True,
+    #     verbose_name="Which voluntary organisations can assist the EMS?"
+    # )
 
-    trauma_centres = fields.IntegerField(
-        blank=True, null=True,
-        verbose_name="Please enter the number of major trauma centres within the EMS catchment zone?"
-    )
+    # authorisation_required = fields.CharField(
+    #     choices=YES_NO_CHOICES, max_length=256,
+    #     verbose_name="Do they require authorisation from the police?"
+    # )
 
-    trauma_units = fields.IntegerField(
-        blank=True, null=True,
-        verbose_name="Please enter the number of major trauma units within the EMS catchment zone?"
-    )
+    # trauma_centres = fields.IntegerField(
+    #     blank=True, null=True,
+    #     verbose_name="Please enter the number of major trauma centres within the EMS catchment zone?"
+    # )
 
-    hospital_without_trauma_specialty = fields.IntegerField(
-        blank=True, null=True,
-        verbose_name="Please enter the number of hospitals without trauma specialty within the EMS catchment zone?"
-    )
+    # trauma_units = fields.IntegerField(
+    #     blank=True, null=True,
+    #     verbose_name="Please enter the number of major trauma units within the EMS catchment zone?"
+    # )
 
-    triage_system = fields.CharField(
-        default=False, choices=YES_NO_CHOICES, max_length=256,
-        verbose_name="Is a prehospital on scene triage system being used daily on a national level?"
-    )
+    # hospital_without_trauma_specialty = fields.IntegerField(
+    #     blank=True, null=True,
+    #     verbose_name="Please enter the number of hospitals without trauma specialty within the EMS catchment zone?"
+    # )
 
-    which_triage_system = fields.CharField(
-        max_length=256, blank=True, null=True, choices=YES_NO_CHOICES,
-        verbose_name="Please specify which prehospital on scene triage system is being used"
-    )
+    # triage_system = fields.CharField(
+    #     default=False, choices=YES_NO_CHOICES, max_length=256,
+    #     verbose_name="Is a prehospital on scene triage system being used daily on a national level?"
+    # )
 
-    different_system = fields.CharField(
-        max_length=256, blank=True, null=True, choices=YES_NO_CHOICES,
-        verbose_name="Is the system used on a daily basis the same as the one used in a major incident"
-    )
+    # which_triage_system = fields.CharField(
+    #     max_length=256, blank=True, null=True, choices=YES_NO_CHOICES,
+    #     verbose_name="Please specify which prehospital on scene triage system is being used"
+    # )
 
-    different_system_description = fields.TextField(
-        verbose_name="If not what is it?"
-    )
+    # different_system = fields.CharField(
+    #     max_length=256, blank=True, null=True, choices=YES_NO_CHOICES,
+    #     verbose_name="Is the system used on a daily basis the same as the one used in a major incident"
+    # )
 
-class BronzeOfficer(models.PatientSubrecord):
-    _is_singleton = True
+    # different_system_description = fields.TextField(
+    #     verbose_name="If not what is it?"
+    # )
 
-    transport_industrial = fields.BooleanField(
+    cause_transport_industrial = fields.BooleanField(
         default=False,
         verbose_name = "Transport and industrial accident"
     )
 
-    extreme_weather = fields.BooleanField(
+    cause_extreme_weather = fields.BooleanField(
         default=False,
         verbose_name = "Extreme weather"
     )
 
-    fire = fields.BooleanField(
+    cause_fire = fields.BooleanField(
         default=False,
         verbose_name = "Fire"
     )
 
-    mass_gathering = fields.BooleanField(
+    cause_mass_gathering = fields.BooleanField(
         default=False,
         verbose_name = "Mass Gathering"
     )
 
-    explosive = fields.BooleanField(
+    cause_explosive = fields.BooleanField(
         default=False,
         verbose_name = "Explosive"
     )
 
-    industrial_accident = fields.BooleanField(
+    cause_industrial_accident = fields.BooleanField(
         default=False,
         verbose_name = "Industrial accident"
     )
 
-    nuclear_radiological = fields.BooleanField(
+    cause_nuclear_radiological = fields.BooleanField(
         default=False,
         verbose_name = "Nuclear or radiological incident"
     )
 
-    biological = fields.BooleanField(
+    cause_biological = fields.BooleanField(
         default=False,
         verbose_name = "Biological"
     )
 
-    chemical = fields.BooleanField(
+    cause_chemical = fields.BooleanField(
         default=False,
         verbose_name = "Chemical"
     )
 
-    other_unknown = fields.BooleanField(
+    cause_other = fields.BooleanField(
         default=False,
-        verbose_name = "Other/unknown"
+        verbose_name = "Other / unknown"
     )
 
-    weather_type = fields.CharField(
+    specify_weather = fields.CharField(
         null=True,
         blank=True,
         choices=[("Avalance", "Avalanche"),
@@ -175,23 +171,94 @@ class BronzeOfficer(models.PatientSubrecord):
         max_length=256
     )
 
-    other_cause = fields.TextField(
+    specify_cause = fields.TextField(
         null=True,
         blank=True,
         verbose_name="Please specify other mechanism/external factor that caused the incident"
     )
 
     coupled_to_another = fields.CharField(
+        null=True,
+        blank=True,
         choices=YES_NO_CHOICES,
         max_length=256,
         verbose_name="Is this incident coupled to another incident?"
     )
 
-    specify_copled = fields.TextField(
+    specify_coupled = fields.TextField(
         null=True,
         blank=True,
         verbose_name="Please specify which other incident this major incident is coupled to"
     )
+
+    location_urban = fields.BooleanField(
+        default=False,
+        verbose_name = "Urban area"
+    )
+
+    location_rural = fields.BooleanField(
+        default=False,
+        verbose_name = "Rural/countryside area"
+    )
+
+    location_maritime = fields.BooleanField(
+        default=False,
+        verbose_name = "Offshore/maritine (ocean, river, lake)"
+    )
+
+    location_mountain = fields.BooleanField(
+        default=False,
+        verbose_name = "Mountain"
+    )
+
+    location_road = fields.BooleanField(
+        default=False,
+        verbose_name = "Road"
+    )
+
+    location_airport = fields.BooleanField(
+        default=False,
+        verbose_name = "Airport"
+    )
+
+    location_education = fields.BooleanField(
+        default=False,
+        verbose_name = "Education facility"
+    )
+
+    location_public = fields.BooleanField(
+        default=False,
+        verbose_name = "Public facility"
+    )
+
+    location_healthcare = fields.BooleanField(
+        default=False,
+        verbose_name = "Health care facility"
+    )
+
+    location_building = fields.BooleanField(
+        default=False,
+        verbose_name = "Building"
+    )
+
+    location_gathering = fields.BooleanField(
+        default=False,
+        verbose_name = "Mass gathering"
+    )
+
+    location_other = fields.BooleanField(
+        default=False,
+        verbose_name = "Other / unknown"
+    )
+
+    specify_location = fields.TextField(
+        null=True,
+        blank=True,
+        verbose_name="Please specify which other type of location of incident scene"
+    )
+
+class BronzeOfficer(models.PatientSubrecord):
+    _is_singleton = True
 
 class IncidentTimeline(models.PatientSubrecord):
     _is_singleton = True

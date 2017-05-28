@@ -1,18 +1,1 @@
 {% load forms %}
-<label class="control-label col-sm-3">
-  What was the mechanism/exteral factor that caused the incident? Please tick for all options that apply.
-</label>
-{% checkbox  field="BronzeOfficer.transport_industrial"  %}
-{% checkbox  field="BronzeOfficer.extreme_weather"  %}
-{% checkbox  field="BronzeOfficer.fire"  %}
-{% checkbox  field="BronzeOfficer.mass_gathering"  %}
-{% checkbox  field="BronzeOfficer.explosive"  %}
-{% checkbox  field="BronzeOfficer.industrial_accident"  %}
-{% checkbox  field="BronzeOfficer.nuclear_radiological"  %}
-{% checkbox  field="BronzeOfficer.biological"  %}
-{% checkbox  field="BronzeOfficer.chemical"  %}
-{% checkbox  field="BronzeOfficer.other_unknown"  %}
-{% input  field="BronzeOfficer.weather_type"  %}
-{% textarea  field="BronzeOfficer.other_cause"  %}
-{% input  field="BronzeOfficer.coupled_to_another"  %}
-{% textarea  field="BronzeOfficer.specify_copled"  %}
