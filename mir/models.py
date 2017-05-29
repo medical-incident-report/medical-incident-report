@@ -26,6 +26,12 @@ YES_NO_CHOICES = (
     ('No', 'No',),
 )
 
+YES_NO_UKNOWN_CHOICES = (
+    ('Yes', 'Yes',),
+    ('No', 'No',),
+    ('Unknown', 'Unknown',),
+)
+
 
 class RegisterIncident(models.PatientSubrecord):
     _is_singleton = True
@@ -48,63 +54,6 @@ class FirstEmergencyResponder(models.PatientSubrecord):
         null=True,
         blank=True
     )
-
-    # one_common_number = fields.CharField(
-    #     default="Yes",
-    #     choices=YES_NO_CHOICES, max_length=256,
-    #     verbose_name="Is there one common phone number for the emergency services?"
-    # )
-
-    # directly_referred = fields.CharField(
-    #     default="Yes",
-    #     choices=YES_NO_CHOICES,
-    #     max_length=256,
-    #     verbose_name="Can an emergency incident be referred directly by the EMS?"
-    # )
-
-    # voluntary = fields.TextField(
-    #     null=True, blank=True,
-    #     verbose_name="Which voluntary organisations can assist the EMS?"
-    # )
-
-    # authorisation_required = fields.CharField(
-    #     choices=YES_NO_CHOICES, max_length=256,
-    #     verbose_name="Do they require authorisation from the police?"
-    # )
-
-    # trauma_centres = fields.IntegerField(
-    #     blank=True, null=True,
-    #     verbose_name="Please enter the number of major trauma centres within the EMS catchment zone?"
-    # )
-
-    # trauma_units = fields.IntegerField(
-    #     blank=True, null=True,
-    #     verbose_name="Please enter the number of major trauma units within the EMS catchment zone?"
-    # )
-
-    # hospital_without_trauma_specialty = fields.IntegerField(
-    #     blank=True, null=True,
-    #     verbose_name="Please enter the number of hospitals without trauma specialty within the EMS catchment zone?"
-    # )
-
-    # triage_system = fields.CharField(
-    #     default=False, choices=YES_NO_CHOICES, max_length=256,
-    #     verbose_name="Is a prehospital on scene triage system being used daily on a national level?"
-    # )
-
-    # which_triage_system = fields.CharField(
-    #     max_length=256, blank=True, null=True, choices=YES_NO_CHOICES,
-    #     verbose_name="Please specify which prehospital on scene triage system is being used"
-    # )
-
-    # different_system = fields.CharField(
-    #     max_length=256, blank=True, null=True, choices=YES_NO_CHOICES,
-    #     verbose_name="Is the system used on a daily basis the same as the one used in a major incident"
-    # )
-
-    # different_system_description = fields.TextField(
-    #     verbose_name="If not what is it?"
-    # )
 
     cause_transport_industrial = fields.BooleanField(
         default=False,
@@ -414,4 +363,112 @@ class IncidentTimeline(models.PatientSubrecord):
         null=True,
         blank=True,
         verbose_name="Major incident stand down declared by hospital"
+    )
+
+
+class IncidentPlanQuestions(models.PatientSubrecord):
+    """ These questions are asked to all
+        Bronze, Silver and Gold Advisors
+    """
+    prehospital_major_incident_plan = fields.TextField(
+        verbose_name="Please Enter the pre-hospital major incident response if one exists?"
+    )
+
+    actual_response = fields.TextField(
+        verbose_name="ow did your actual response differ to the plan and what was the consequence of that?"
+    )
+
+
+class EmsBackground(models.PatientSubrecord):
+    ems_coordinating_centre_exists = fields.CharField(
+        null=True,
+        blank=True,
+        choices=YES_NO_CHOICES,
+        max_length=256,
+        verbose_name="Was an EMS coordinating centre (the centre responsible for dispatching and coordinating EMS units to the scene) available in the affected country/ies at the time of the incident?"
+    )
+
+    ems_common_dialing_number = fields.CharField(
+        null=True,
+        blank=True,
+        choices=YES_NO_CHOICES,
+        max_length=256,
+        verbose_name="Is there one common dialling number for all Emergency Services (fire, police, EMS)?"
+    )
+
+    ems_directly_declared = fields.CharField(
+        null=True,
+        blank=True,
+        max_length=256,
+        choices=YES_NO_UKNOWN_CHOICES,
+        verbose_name="Can a major incident be declared directly by the person receiving an alert at the EMS coordinating centre?"
+    )
+
+    # EMS staff background
+    basic_life_support_non_ems = fields.BooleanField(
+        default=False,
+        verbose_name="Basic Life Support by non-EMS professional"
+    )
+
+    basic_life_support_non_ems = fields.BooleanField(
+        default=False,
+        verbose_name="Basic Life Support by EMS professional"
+    )
+
+    non_physician_advanced_live_support = fields.BooleanField(
+        default=False,
+        verbose_name="non-physician Advanced Life Support by EMS professional"
+    )
+
+    life_support_on_scene_by_physician = fields.BooleanField(
+        default=False,
+        verbose_name="Advanced Life Support by On-scene Physician"
+    )
+
+    other = fields.CharField(
+        null=True, blank=True, max_length=256
+    )
+
+    voluntary_organisations_available = fields.CharField(
+        null=True, blank=True, max_length=256,
+        verbose_name="Please specify which voluntary organizations are available to assist the EMS service in a normal setting?"
+    )
+
+    trauma_network = fields.CharField(
+        null=True, blank=True, max_length=256, choices=YES_NO_UKNOWN_CHOICES,
+        verbose_name="Does the country where the major incident took place have a trauma network?"
+    )
+
+    regional_trauma_hospitals = fields.BooleanField(
+        default=False,
+        verbose_name="Are there any regional hospital/s with trauma specialty that exists within the EMS catchment system that was affected by the major incident?"
+    )
+
+    TRIAGE_SYSTEM_CHOICES = (
+        ('Yes', 'Yes'),
+        ('Yes, but different triage systems exist in different regions', 'Yes, but different triage systems exist in different regions',),
+        ('No', 'No',),
+        ('Unknown', 'Unknown',)
+    )
+
+    pre_hospital_triage_system = fields.CharField(
+        blank=True, null=True, choices=TRIAGE_SYSTEM_CHOICES, max_length=256,
+        verbose_name="Is a pre-hospital triage system in use on a daily basis on regional levels?"
+    )
+
+    TRIAGE_REGIONAL_CHOICES = (
+        ("Yes", "Yes"),
+        ("Yes, but different triage systems exist in different region", "Yes, but different triage systems exist in different region"),
+        ('No', 'No',),
+        ('Unknown', 'Unknown',)
+    )
+
+    pre_hospital_triage_regional = fields.CharField(
+        blank=True, null=True, choices=TRIAGE_REGIONAL_CHOICES, max_length=256,
+        verbose_name="Is a pre-hospital triage system in use for major incidents on regional levels?"
+    )
+
+    regional_response_plan_including_all_emergency_services = fields.CharField(
+        blank=True, null=True, choices=YES_NO_UKNOWN_CHOICES, max_length=256,
+        verbose_name="Is there a regional major incident response plan incorporating all emergency services within the area that the the major incident occured?"
     )

@@ -1,0 +1,20 @@
+{% load forms %}
+{% input  field="EmsBackground.ems_coordinating_centre_exists"  %}
+{% input  field="EmsBackground.ems_common_dialing_number"  %}
+{% input  field="EmsBackground.ems_directly_declared"  %}
+
+<label class="control-label col-sm-3">
+  What is the background of staff in the every-day/normal staffing of EMS services? Please tick for all options that apply.
+</label>
+{% checkbox  field="EmsBackground.basic_life_support_non_ems"  %}
+{% checkbox  field="EmsBackground.non_physician_advanced_live_support"  %}
+{% checkbox  field="EmsBackground.life_support_on_scene_by_physician"  %}
+{% input  field="EmsBackground.other"  %}
+
+<br />
+{% input  field="EmsBackground.voluntary_organisations_available"  %}
+{% input  field="EmsBackground.trauma_network"  %}
+{% checkbox  field="EmsBackground.regional_trauma_hospitals"  %}
+{% input  field="EmsBackground.pre_hospital_triage_system"  %}
+{% input  field="EmsBackground.pre_hospital_triage_regional"  %}
+{% input  field="EmsBackground.regional_response_plan_including_all_emergency_services"  %}
